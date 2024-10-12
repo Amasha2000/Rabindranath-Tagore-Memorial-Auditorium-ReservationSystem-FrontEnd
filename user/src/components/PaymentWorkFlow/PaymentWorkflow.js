@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './PaymentWorkflow.css';
 import auditoriumOutside from '../../images/header2.jpg';
+import LoadingComponent from '../LoadingComponent/LoadingComponent';
 
 const PaymentWorkflow = () => {
   const [reservationData, setReservationData] = useState([]);
@@ -21,6 +22,12 @@ const PaymentWorkflow = () => {
           `http://localhost:8080/reservation/get_user/${userName}`
         );
         const data = reservationResponse.data;
+
+        if (data.length === 0) {
+          alert('You have no reservation data.');
+          return;
+        }
+
         setReservationData(data);
 
         console.log(data[0])
@@ -67,7 +74,7 @@ const PaymentWorkflow = () => {
   };
 
   if (reservationData.length === 0) {
-    return <div>Loading reservation data...</div>;
+    return <LoadingComponent/>;
   }
 
   return (

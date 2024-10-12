@@ -10,6 +10,8 @@ import SignUp from './components/Auth/SignUp'
 import Form from './components/Form/SubmissionForm'     
 import Notification from './components/Notification/Notification'  
 import AvailabilityCalendar from './components/Calendar/AvailabilityCalendar';  
+import Navbar from './components/Nav/Navbar';
+import Footer from './components/Footer/Footer';
 
 const stripePromise = loadStripe('pk_test_51NTgKRAaWvD0FBmzmVquePz9uFILsjLUYey7pNiY4zIiKVyuzhYAPMdWg7USuiUujmsRvNUC1H14x666RiZKa53g00xLyoEIOj');
 
@@ -19,10 +21,13 @@ function App() {
       <Routes>
         <Route path="/cal" element={<AvailabilityCalendar />} />
         <Route path="/form" element={<Form />} />
-        <Route path="/payment" element={<PaymentWorkflow />} />
-        <Route path="/noti" element={<Notification />} /> 
+        <Route path="/payment-dashboard" element={<PaymentWorkflow />} />
+        <Route path="/notifications" element={<Notification />} /> 
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
+        <Route path="/nav" element={<Navbar />} />
+        <Route path="/footer" element={<Footer />} />
+
         <Route
           path="/payment/:reservationId/:amount/:paymentType"
           element={
