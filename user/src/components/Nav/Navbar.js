@@ -24,7 +24,7 @@ const Navbar = () => {
         </a>
         <a href="/dashboard" className="navbar-link">
           <FontAwesomeIcon icon={faTachometerAlt} className="icon" />
-          <span>Dashboard</span>
+          <span>Booking Overview</span>
         </a>
         <a href="/payment-dashboard" className="navbar-link">
           <FontAwesomeIcon icon={faMoneyCheckAlt} className="icon" />
