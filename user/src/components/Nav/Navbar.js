@@ -22,11 +22,11 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faHome} className="icon" />
           <span>Home</span>
         </a>
-        <a href="/dashboard" className="navbar-link">
+        <a href="/booking-overview" className="navbar-link">
           <FontAwesomeIcon icon={faTachometerAlt} className="icon" />
           <span>Booking Overview</span>
         </a>
-        <a href="/payment-dashboard" className="navbar-link">
+        <a href="/payment" className="navbar-link">
           <FontAwesomeIcon icon={faMoneyCheckAlt} className="icon" />
           <span>Payments</span>
         </a>

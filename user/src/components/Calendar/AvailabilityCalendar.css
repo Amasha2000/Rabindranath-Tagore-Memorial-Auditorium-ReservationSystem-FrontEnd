@@ -21,6 +21,12 @@
     box-sizing: border-box;
     padding: 5px;
     font-size: 16px;
+    color: gray;
+  }
+
+  .react-calendar__tile--active{
+    background: #091057 !important;
+    color: white !important;
   }
   
   .disabled-tile {
@@ -103,14 +109,17 @@
   }
   
   .proceed-btn {
-    padding: 10px 15px;
-    background-color: #6256CA;
+    padding: 15px 20px;
+    background-color: #0D92F4;
     color: white;
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 550;
     border-radius: 10px;
     letter-spacing: 0.4px; 
+    width: 22%;
+    text-align: center;
+    white-space: nowrap;
   }
   
   .proceed-btn.disabled {
@@ -136,9 +145,13 @@
     right: -20px;
     transition: 0.5s;
   }
+
+  .proceed-btn:hover{
+    background-color: #091057;
+  }
   
   .proceed-btn:hover span {
-    padding-right: 18px;
+    padding-right: 20px;
   }
   
   .proceed-btn:hover span:after {

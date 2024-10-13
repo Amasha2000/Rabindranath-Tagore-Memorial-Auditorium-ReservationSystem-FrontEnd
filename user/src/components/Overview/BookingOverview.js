@@ -6,7 +6,7 @@ import floorPlan from '../../images/FloorPlan.jpg';
 
 const BookingOverview = () => {
   const handleCheckAvailability = () => {
-    window.location.href = "/cal"; 
+    window.location.href = "/availability"; 
   };
 
   return (

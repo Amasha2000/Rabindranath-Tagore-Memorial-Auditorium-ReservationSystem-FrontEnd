@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SubmissionForm.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -40,6 +41,7 @@ const ApplicationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -122,6 +124,7 @@ const ApplicationForm = () => {
           }
         );
         console.log('Reservation created successfully', response.data);
+        navigate('/payment')
       } catch (error) {
         console.error('Error submitting form', error);
       }

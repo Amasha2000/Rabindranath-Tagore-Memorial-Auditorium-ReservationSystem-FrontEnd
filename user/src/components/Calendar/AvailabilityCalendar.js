@@ -9,6 +9,10 @@ const AvailabilityCalendar = () => {
   const [events, setEvents] = useState([]);
   const [isProceedButtonEnabled, setIsProceedButtonEnabled] = useState(false);
 
+  const handleSubmit = () => {
+    window.location.href = "/terms"; 
+  };
+
   useEffect(() => {
     // Fetch events data from the backend
     axios.get('http://localhost:8080/reservation/unavailable-dates')
@@ -102,6 +106,7 @@ const AvailabilityCalendar = () => {
     <button
       className={`proceed-btn ${isProceedButtonEnabled ? '' : 'disabled'}`}
       disabled={!isProceedButtonEnabled}
+      onClick={handleSubmit}
     >
       <span>
       Proceed to Reservation
