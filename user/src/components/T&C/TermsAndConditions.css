@@ -1,0 +1,94 @@
+.terms-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .terms-container h2{
+    text-align: center;
+    margin: 10px 0 10px;
+  }
+
+  .pdf-viewer {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+  }
+  
+  .agreement {
+    margin-top: 20px;
+    display: flex;
+  }
+  
+  .agreement input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 40px;
+  }
+
+  .agreement label{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .submit-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .submit-btn:not(:disabled):hover {
+    background-color: #0056b3;
+  }
+
+  @media screen and (max-width: 768px) {
+    .terms-container {
+      width: 90%;
+    }
+  
+    .terms-container h2 {
+      font-size: 1.25rem;
+    }
+  
+    .pdf-viewer {
+      height: 400px; 
+    }
+  
+    .agreement label {
+      font-size: 0.9rem;
+    }
+  
+    .submit-btn {
+      padding: 8px 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .terms-container {
+      width: 95%;
+    }
+  
+    .terms-container h2 {
+      font-size: 1.1rem;
+    }
+  
+    .pdf-viewer {
+      height: 300px; 
+    }
+  
+    .agreement label {
+      font-size: 0.85rem;
+    }
+  
+    .submit-btn {
+      padding: 6px 10px;
+    }
+  }
+  

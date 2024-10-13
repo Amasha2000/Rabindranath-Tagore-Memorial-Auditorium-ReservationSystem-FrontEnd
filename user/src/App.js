@@ -12,6 +12,7 @@ import Notification from './components/Notification/Notification'
 import AvailabilityCalendar from './components/Calendar/AvailabilityCalendar';  
 import Navbar from './components/Nav/Navbar';
 import Footer from './components/Footer/Footer';
+import TermsAndConditions from './components/T&C/TermsAndConditions';
 
 const stripePromise = loadStripe('pk_test_51NTgKRAaWvD0FBmzmVquePz9uFILsjLUYey7pNiY4zIiKVyuzhYAPMdWg7USuiUujmsRvNUC1H14x666RiZKa53g00xLyoEIOj');
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/nav" element={<Navbar />} />
         <Route path="/footer" element={<Footer />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
 
         <Route
           path="/payment/:reservationId/:amount/:paymentType"
