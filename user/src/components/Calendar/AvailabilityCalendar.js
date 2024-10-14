@@ -17,11 +17,10 @@ const AvailabilityCalendar = () => {
     // Fetch events data from the backend
     axios.get('http://localhost:8080/reservation/unavailable-dates')
     .then(response => {
-      const eventsWithColors = response.data.map(event => ({
-        ...event,
-        color: getRandomColor()
+      const events = response.data.map(event => ({
+        ...event
       }));
-      setEvents(eventsWithColors);
+      setEvents(events);
     })
     .catch(error => console.error('Failed to fetch events:', error));
   }, []);
@@ -40,43 +39,7 @@ const AvailabilityCalendar = () => {
     );
     setIsProceedButtonEnabled(!hasEventAvailable);
   };
-
-  const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 8)];  
-    }
-    return color;
-  };  
-
-  const tileContent = ({ date, view }) => {
-    if (view === 'month') {
-      const normalizedDate = normalizeDate(date); 
   
-      const dayEvents = events.filter(event => 
-        normalizeDate(new Date(event.reservedDate)).getTime() === normalizedDate.getTime()
-      );
-  
-      return (
-        <div className="events-container">
-          {dayEvents.map((event, index) => (
-            <div 
-              key={index} 
-              className="event-box"
-              style={{ backgroundColor: event.color }} 
-            >
-              <p>{event.organizationName}</p>
-              <p>{event.eventType}</p>
-            </div>
-          ))}
-        </div>
-      );
-    }
-    return null;
-  };
-  
-
   const tileDisabled = ({ date }) => {
     const normalizedDate = normalizeDate(date);
     return events.some(event => 
@@ -96,7 +59,6 @@ const AvailabilityCalendar = () => {
       <Calendar
         onChange={onDateChange}
         value={selectedDate}
-        tileContent={tileContent}
         tileDisabled={tileDisabled}
         tileClassName={tileClassName}
         minDate={new Date()} 
