@@ -1,10 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AvailabilityCalendar from './components/EventCalendar/Calendar';
 
 function App() {
   return (
-    <div className="App">
-      VC portal
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/event-calendar" element={<AvailabilityCalendar />} />
+        </Routes>
+      </Router>
   );
 }
 
