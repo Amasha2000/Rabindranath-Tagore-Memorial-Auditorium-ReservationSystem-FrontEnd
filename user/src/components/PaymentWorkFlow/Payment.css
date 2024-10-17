@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     background-color: #f4f4f9;
+    position: relative;
   }
   
   .payment-card {
@@ -49,6 +50,23 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #000;
+    width: 5%;
+  }
+  
+  .back-button:hover {
+    color: #007BFF;
   }
   
   .payment-card button:disabled {

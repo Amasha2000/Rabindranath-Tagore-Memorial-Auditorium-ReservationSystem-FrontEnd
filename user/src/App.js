@@ -28,7 +28,7 @@ function App() {
         <Route path="/payment" element={<PaymentWorkflow />} />
         <Route path="/notifications" element={<Notifications />} />
 
-        <Route path="/login" element={<SignIn />} />
+        <Route path="/user-login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
 
         <Route

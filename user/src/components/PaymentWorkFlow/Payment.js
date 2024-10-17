@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { useParams } from 'react-router-dom'; 
+import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './Payment.css'; 
 
 const Payment = () => {
@@ -10,6 +12,7 @@ const Payment = () => {
   const elements = useElements();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,14 +47,21 @@ const Payment = () => {
     }
   };
 
+  const handleBackClick = () => {
+    navigate(-1); 
+  };
+
   return (
     <div className="payment-container">
+       <button onClick={handleBackClick} className="back-button">
+        <FontAwesomeIcon icon={faArrowLeft} /> 
+      </button>
       <div className="payment-card">
         <h1>Payment for Reservation</h1>
         <p>Amount to pay: Rs.{amount}</p>
         <form onSubmit={handleSubmit}>
           <CardElement className="CardElement" />
-          <button type="submit" disabled={!stripe}>Pay</button>
+          <button type="submit" disabled={!stripe || success}>Pay</button>
         </form>
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">Payment successful!</div>}

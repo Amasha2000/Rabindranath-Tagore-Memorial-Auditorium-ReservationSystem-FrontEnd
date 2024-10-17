@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate()
 
   const handleLogin = async () => {
     try {
@@ -14,19 +12,17 @@ const SignIn = () => {
       formData.append('password', password);
 
       const response = await axios.post('http://localhost:8080/login', formData, {
-          headers: {
-              'Content-Type': 'application/x-www-form-urlencoded', 
-          },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', 
+        },
           withCredentials: true
       });
 
       console.log(response.data);
-      const { userName } = response.data;
+      const {userName} = response.data;
 
       localStorage.setItem('userName', userName);
       console.log("User ID stored:", userName);
-
-      navigate('/booking-overview')
   } catch (error) {
       console.error("Login error:", error);
       if (error.response) {
@@ -35,18 +31,6 @@ const SignIn = () => {
       }
   }
   };
-
-  // useEffect(() => {
-  //   const clearLocalStorageOnUnload = () => {
-  //     localStorage.removeItem('userName');
-  //   };
-  
-  //   window.addEventListener('beforeunload', clearLocalStorageOnUnload);
-  
-  //   return () => {
-  //     window.removeEventListener('beforeunload', clearLocalStorageOnUnload);
-  //   };
-  // }, []);
   
 
   return (
