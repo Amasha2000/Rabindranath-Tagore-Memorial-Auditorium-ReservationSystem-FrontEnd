@@ -73,7 +73,7 @@
     width: 11%;
     margin: 0;
     font-size: 15px;
-    
+    background-color: aqua;
   }
 
   .markAsReadButton:disabled{

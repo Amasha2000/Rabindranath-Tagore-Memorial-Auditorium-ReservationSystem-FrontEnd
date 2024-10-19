@@ -11,7 +11,7 @@ const Notification = () => {
     const userName = localStorage.getItem('userName'); 
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/notifications/${userName}`);
+        const response = await axios.get(`http://localhost:8080/notifications/vc/${userName}`);
         setNotifications(response.data);
         console.log(response.data)
       } catch (error) {
@@ -58,11 +58,11 @@ const Notification = () => {
       </div>
       <div className="notifications">
         {filteredNotifications.map((notif) => (
-          <div className="notification-box" key={notif.notification_id}>
+          <div className="notification-box" key={notif.notificationId}>
             <span>{notif.message}</span>
             <a href={notif.redirectUrl}>Go to Page</a>
             <button className='markAsReadButton' 
-            onClick={() => handleMarkAsRead(notif.notification_id)}
+            onClick={() => handleMarkAsRead(notif.notificationId)}
             disabled={notif.hasRead}
             >
               Mark as Read
