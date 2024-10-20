@@ -96,11 +96,28 @@ const ApplicationForm = () => {
     }
   };
 
+  const handleApproval = async (status) => {
+    try {
+      const response = await fetch(`http://localhost:8080/reservation/${memoizedReservationData.reservationId}/${status}`, {
+        method: 'PUT' 
+      });
+
+      if (response.ok) {
+        alert(`Reservation ${status} successfully.`);
+      } else {
+        alert('Error updating reservation status');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error updating reservation status');
+    }
+  };
+
   return (
     <div className="form-container">
       <h1 className="form-title">Application Form</h1>
 
-      <form className="form-content" onSubmit={handleSubmit}>
+      <form className="form-content">
         <div className="section">
           <h3>Details of the organization/person applying:</h3>
           <div className="input-group">
@@ -332,9 +349,14 @@ const ApplicationForm = () => {
   </div>
 </div>
 
-<button type="submit">
-  Send to VC
+<div className='submit-buttons'>
+ <button className='reject' type='button' onClick={() => handleApproval('REJECTED')}>
+  Reject
 </button>
+<button className='approve' type='button' onClick={() => handleSubmit()}>
+  Send To VC
+</button>
+ </div>
 </form>
 </div>
 );

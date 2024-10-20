@@ -160,6 +160,19 @@
     background-color: #ccc;
   }
 
+  .submit-buttons{
+    display: flex;
+    justify-content: space-between;
+   }
+
+   .approve{
+    background-color: #6EC207;
+   }
+  
+   .reject{
+    background-color: #FF204E;
+   }
+
   @media (max-width: 768px) {
     .input-group {
       flex-direction: column; 

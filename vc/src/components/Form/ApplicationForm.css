@@ -161,11 +161,11 @@
  }
 
  .approve{
-  background-color: green;
+  background-color: #6EC207;
  }
 
  .reject{
-  background-color: red;
+  background-color: #FF204E;
  }
 
   @media (max-width: 768px) {

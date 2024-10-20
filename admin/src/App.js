@@ -7,7 +7,7 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin-dashboard" element={<Dashboard />} />
           <Route path="/application-form" element={<ApplicationForm />} />
         </Routes>
       </Router>
