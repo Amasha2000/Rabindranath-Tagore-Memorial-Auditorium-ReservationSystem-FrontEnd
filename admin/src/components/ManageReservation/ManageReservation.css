@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #7D0A0A;
+  }
+  
+  select {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  table {
+    width: 99.5%;
+    margin: 0.2%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #B7B7B7;
+  }
+  
+  thead {
+    background-color: #DBD3D3;
+  }
+  
+  th, td {
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+  
+  td {
+    font-size: 12px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #2e86c1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    margin: 3px;
+  }
+
+  .complete{
+    background-color: #6EC207;
+  }
+  
+  button:hover {
+    background-color: #114232;
+  }
+  
+  button[onClick*="handleComplete"] {
+    background-color: #28a745;
+  }
+  
+  button[onClick*="handleComplete"]:hover {
+    background-color: #218838;
+  }
+  
+  button[onClick*="handleView"] {
+    background-color: #3498db;
+  }
+  
+  button[onClick*="handleView"]:hover {
+    background-color: #2980b9;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+    }
+  
+    th, td {
+      padding: 8px;
+    }
+  
+    select {
+      width: 80%;
+    }
+  }
+  

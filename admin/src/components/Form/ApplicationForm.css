@@ -167,10 +167,12 @@
 
    .approve{
     background-color: #6EC207;
+    width: 20%;
    }
   
    .reject{
     background-color: #FF204E;
+    width: 20%;
    }
 
   @media (max-width: 768px) {
