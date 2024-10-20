@@ -2,7 +2,9 @@
     width: 200px;
     background-color: #B7B7B7;
     height: 100vh;
-    padding: 20px;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .sidebar ul {

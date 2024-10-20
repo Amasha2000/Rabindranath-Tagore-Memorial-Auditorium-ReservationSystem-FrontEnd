@@ -1,14 +1,19 @@
 import React from "react";
-// import Footer from "../components/Footer/Footer";
+import NavBar from "../components/Nav/NavBar";
+import Footer from "../components/Footer/Footer";
 import Notification from "../components/Notification/Notification";
+import SideBar from "../components/SideBar/SideBar";
 
 const Notifications = () => {
     return (
-        <div>
-
-          <Notification />
-          {/* <Footer /> */}
-        </div>
+      <>
+      <NavBar />
+          <div className="vc-panel">
+            <SideBar />
+            <Notification />
+          </div>
+      <Footer />
+      </>  
     )
 }
 
