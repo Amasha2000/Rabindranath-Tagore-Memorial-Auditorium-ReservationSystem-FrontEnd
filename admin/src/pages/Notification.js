@@ -1,5 +1,5 @@
 import React from "react";
-import AdminDashboard from "../components/Dashboard/Dashboard";
+import Notification from "../components/Notification/Notification";
 import SideBar from "../components/SideBar/SideBar";
 import Navbar from "../components/Nav/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -7,14 +7,14 @@ import './AdminPanel.css';
 
 const Dashboard = () => {
     return (
-        <>
-        <Navbar />
-        <div className="admin-panel">
+       <>
+       <Navbar />
+       <div className="admin-panel">
             <SideBar />
-            <AdminDashboard />
+            <Notification />
         </div>
         <Footer />
-        </>   
+       </>     
     )
 }
 

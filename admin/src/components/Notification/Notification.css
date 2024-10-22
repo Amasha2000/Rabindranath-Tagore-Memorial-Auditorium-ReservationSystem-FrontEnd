@@ -1,0 +1,136 @@
+.notification-page {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/header1.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.56);
+    z-index: -1;
+  }
+  
+  .toggle-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  
+  .toggle-buttons button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 3px;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    margin: 0;
+  }
+  
+  .toggle-buttons .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .notifications {
+    width: 100%;
+    max-width: 90%;
+    margin-top: 20px;
+  }
+  
+  .notification-box {
+    background-color: white;
+    padding: 20px; 
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    height: 30px; 
+    opacity: 0.85;
+  }
+
+  .markAsReadButton{
+    width: 11%;
+    margin: 0;
+    font-size: 15px;
+    background-color: aqua;
+  }
+
+  .markAsReadButton:disabled{
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 425px){
+    .notification-box,
+    .toggle-buttons button
+    {
+        font-size: 12px;
+    }
+
+    .date{
+      display: none;
+    }
+
+    .markAsReadButton
+    {
+        font-size: 10px;
+        padding: 0;
+    }
+  }
+  
+  @media (max-width: 375px){
+    .notification-box,
+    .toggle-buttons button
+    {
+        font-size: 11px;
+    }
+
+    .date{
+      display: none;
+    }
+
+    .markAsReadButton
+    {
+        font-size: 9px;
+        padding: 0;
+    }
+  }
+
+  @media (max-width: 320px){
+    .notification-box,
+    .toggle-buttons button
+    {
+        font-size: 9px;
+    }
+
+    .date{
+      display: none;
+    }
+
+    .markAsReadButton
+    {
+        font-size: 8px;
+        padding: 0;
+    }
+  }

@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-.dashboard, .calendar-container
+.dashboard, .calendar-container, .notification-page
  {
     flex-grow: 1;           
     padding: 20px;

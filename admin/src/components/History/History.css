@@ -61,21 +61,9 @@ body {
     width: 50%;
     margin: 3px;
   }
-
-  .complete{
-    background-color: #6EC207;
-  }
   
   button:hover {
     background-color: #4CC9FE;
-  }
-  
-  button[onClick*="handleComplete"] {
-    background-color: #28a745;
-  }
-  
-  button[onClick*="handleComplete"]:hover {
-    background-color: #218838;
   }
   
   button[onClick*="handleView"] {
