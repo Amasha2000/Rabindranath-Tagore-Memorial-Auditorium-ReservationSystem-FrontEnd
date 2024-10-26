@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import ApplicationForm from './components/Form/ApplicationForm';
+import ApplicationForm from './pages/Form.js';
 import ReservationManage from './pages/ManageReservation'
 import PaymentWorkflow from './components/PaymentDetail/PaymentDetail';
 import EventCalendar from './pages/EventCalendar';
 import HistoryPage from './pages/History';
 import Notification from './pages/Notification';
+import SignInPage from './pages/SignIn'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/calendar" element={<EventCalendar />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/notifications" element={<Notification />} />
+          <Route path="/login" element={<SignInPage />} />
         </Routes>
       </Router>
   );

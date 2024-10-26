@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/event-calendar" element={<EventCalendar />} />
-          <Route path="/vc-login" element={<SignIn />} />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/vc-dashboard" element={<Dashboard />} />
           <Route path="/application-form" element={<Form />} />

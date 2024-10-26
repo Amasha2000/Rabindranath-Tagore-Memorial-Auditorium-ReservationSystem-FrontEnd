@@ -40,9 +40,9 @@ const ReservationManagePage = () => {
     navigate('/payment-detail', { state: { reservation} });
   };
 
-  if (reservations === null) {
-    return <LoadingComponent/>;
-     }
+  if (!Array.isArray(reservations) || reservations.length === 0) {
+      return <LoadingComponent/>;
+    }   
 
   return (
     <div>

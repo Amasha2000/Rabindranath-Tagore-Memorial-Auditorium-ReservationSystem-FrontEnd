@@ -30,7 +30,7 @@
   }
   
   .toggle-buttons button {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0 !important;
     border: none;
     padding: 10px 50px;
     cursor: pointer;
@@ -40,13 +40,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: black !important;
     margin: 0;
   }
   
   .toggle-buttons .active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50 !important;
+    color: white !important;
   }
   
   .notifications {
@@ -74,11 +74,11 @@
     width: 11%;
     margin: 0;
     font-size: 15px;
-    background-color: aqua;
+    background-color: aqua !important;
   }
 
   .markAsReadButton:disabled{
-    cursor: not-allowed;
+    cursor: not-allowed !important;
   }
 
   @media (max-width: 425px){

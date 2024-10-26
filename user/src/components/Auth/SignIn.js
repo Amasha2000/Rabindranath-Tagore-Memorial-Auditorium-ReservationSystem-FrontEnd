@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './SignUp.css';
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate()
 
-  const handleLogin = async () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
     try {
       const formData = new FormData();
       formData.append('username', username);
@@ -33,6 +35,7 @@ const SignIn = () => {
           console.error("Error data:", error.response.data);
           console.error("Error status:", error.response.status);
       }
+      alert('SignIn was Unsuccessful. Try Again')
   }
   };
 
@@ -50,21 +53,31 @@ const SignIn = () => {
   
 
   return (
-    <div>
-      <input 
-        type="text" 
-        value={username} 
-        onChange={(e) => setUsername(e.target.value)} 
-        placeholder="Username" 
-      />
-      <input 
-        type="password" 
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)} 
-        placeholder="Password" 
-      />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <div className="signup-container">
+            <div className="signup-box">
+                <div className='background-image'></div>
+                <h2>Sign In</h2>
+                <form onSubmit={handleLogin}>
+                    <input 
+                        type="text" 
+                        value={username} 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        placeholder="Username" 
+                        required
+                    />
+                   <input 
+                         type="password" 
+                         value={password} 
+                         onChange={(e) => setPassword(e.target.value)} 
+                         placeholder="Password" 
+                         required
+                   />
+                   <a href="/login">Forgot Password?</a>
+                   <button type='submit'>Sign In</button>
+               </form>
+               <p>Don't have an account? <a href="/register">Sign Up</a></p>
+            </div>
+         </div>   
   );
 };
 

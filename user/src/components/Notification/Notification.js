@@ -27,7 +27,7 @@ const Notification = () => {
       await axios.post(`http://localhost:8080/notifications/markAsRead/${id}`);
       setNotifications((prevNotifications) =>
         prevNotifications.map((notif) =>
-          notif.notification_id === id ? { ...notif, hasRead: true } : notif
+          notif.notificationId === id ? { ...notif, hasRead: true } : notif
         )
       );
     } catch (error) {
@@ -65,7 +65,7 @@ const Notification = () => {
             onClick={() => handleMarkAsRead(notif.notificationId)}
             disabled={notif.hasRead}
             >
-              Mark as Read
+               {notif.hasRead ? 'Read' : 'Mark as Read'}
             </button>
             <span className='date'>{notif.date}</span>
           </div>

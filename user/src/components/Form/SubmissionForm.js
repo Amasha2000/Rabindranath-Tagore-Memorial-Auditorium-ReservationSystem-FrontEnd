@@ -124,6 +124,7 @@ const ApplicationForm = () => {
           }
         );
         console.log('Reservation created successfully', response.data);
+        alert('Form has submitted successfully')
         navigate('/payment')
       } catch (error) {
         console.error('Error submitting form', error);
@@ -353,9 +354,17 @@ const ApplicationForm = () => {
   <h3>Time Period of Decoration/Preparation:</h3>
   <div className="date-time-group">
     <label>From</label>
-    <input type="time" name="decorationStartTime" value={formData.decorationStartTime} onChange={handleChange} />
+    <input type="time" name="decorationStartTime" value={formData.decorationStartTime} onChange={handleChange}  onFocus={() => {
+        if (!formData.decorationStartTime) {
+          setFormData({ ...formData, decorationStartTime: "08:00" });
+        }
+      }}/>
     <label>To</label>
-    <input type="time" name="decorationEndTime" value={formData.decorationEndTime} onChange={handleChange} />
+    <input type="time" name="decorationEndTime" value={formData.decorationEndTime} onChange={handleChange} onFocus={() => {
+        if (!formData.decorationEndTime) {
+          setFormData({ ...formData, decorationEndTime: "12:00" });
+        }
+      }} />
     <label>No of Hours</label>
     <select name="decorationNoOfHours" value={formData.decorationNoOfHours} onChange={handleChange}>
       <option value="">Select</option>
@@ -379,9 +388,18 @@ const ApplicationForm = () => {
   <h3>Time Period of the Rehearsal:</h3>
   <div className="date-time-group">
     <label>From</label>
-    <input type="time" name="rehearsalStartTime" value={formData.rehearsalStartTime} onChange={handleChange} />
+    <input type="time" name="rehearsalStartTime" value={formData.rehearsalStartTime} onChange={handleChange} onFocus={() => {
+        if (!formData.rehearsalStartTime) {
+          setFormData({ ...formData, rehearsalStartTime: "08:00" });
+        }
+      }}/>
     <label>To</label>
-    <input type="time" name="rehearsalEndTime" value={formData.rehearsalEndTime} onChange={handleChange} />
+    <input type="time" name="rehearsalEndTime" value={formData.rehearsalEndTime} onChange={handleChange} onFocus={() => {
+        if (!formData.rehearsalEndTime) {
+          setFormData({ ...formData, rehearsalEndTime: "12:00" });
+        }
+      }}/>
+      
     <label>No of Hours</label>
     <select name="rehearsalNoOfHours" value={formData.rehearsalNoOfHours} onChange={handleChange}>
       <option value="">Select</option>

@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import SignIn from './components/Auth/SignIn'
-import SignUp from './components/Auth/SignUp'
 
-
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import BookingOverview from './pages/BookingOverview';
 import CheckAvailability from './pages/CheckAvailability';
 import Terms from './pages/Terms';
@@ -27,8 +26,7 @@ function App() {
         <Route path="/form" element={<ApplicationForm />} /> 
         <Route path="/payment" element={<PaymentWorkflow />} />
         <Route path="/notifications" element={<Notifications />} />
-
-        <Route path="/user-login" element={<SignIn />} />
+        <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
 
         <Route

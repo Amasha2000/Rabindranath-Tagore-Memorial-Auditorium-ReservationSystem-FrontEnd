@@ -166,12 +166,12 @@
    }
 
    .approve{
-    background-color: #6EC207;
+    background-color: #6EC207 !important;
     width: 20%;
    }
   
    .reject{
-    background-color: #FF204E;
+    background-color: #FF204E !important;
     width: 20%;
    }
 

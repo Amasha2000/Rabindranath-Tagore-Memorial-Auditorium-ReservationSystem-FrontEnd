@@ -18,7 +18,7 @@ const NavBar = () => {
         </span>
       </div>
       <div className="navbar-right">
-        <a href="/vc-login" className="navbar-link">
+        <a href="/login" className="navbar-link">
           <FontAwesomeIcon icon={faHome} className="icon" />
           <span>Home</span>
         </a>

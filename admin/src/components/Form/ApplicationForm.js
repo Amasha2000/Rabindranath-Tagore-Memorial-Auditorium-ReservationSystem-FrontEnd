@@ -85,8 +85,7 @@ const ApplicationForm = () => {
     }
   }, [memoizedReservationData]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       const response = await axios.put(`http://localhost:8080/reservation/send-vc/${memoizedReservationData.reservationId}`);
       alert("Application Form has successfully send to VC");

@@ -25,10 +25,10 @@ const SignIn = () => {
       console.log(response.data);
       const { userName } = response.data;
 
-      localStorage.setItem('vcName', userName);
+      localStorage.setItem('adminName', userName);
       console.log("User ID stored:", userName);
 
-      navigate('/vc-dashboard')
+      navigate('/admin-dashboard')
   } catch (error) {
       console.error("Login error:", error);
       if (error.response) {

@@ -21,25 +21,24 @@ const PaymentWorkflow = () => {
         const reservationResponse = await axios.get(
           `http://localhost:8080/reservation/get_user/${userName}`
         );
-        const data = reservationResponse.data;
+        setReservationData(reservationResponse.data)
+        
+        const data = reservationResponse.data[0];
 
+        console.log(reservationData)
         if (data.length === 0) {
           alert('You have no reservation data.');
           return;
         }
 
-        setReservationData(data);
-
-        console.log(data[0])
-
         // Check if advance payment is already made
         const advancePaymentResponse = await axios.get(
-          `http://localhost:8080/payment/advance/${data[0].reservation_id}`
+          `http://localhost:8080/payment/advance/${data.reservationId}`
         );
         setAdvancePaid(advancePaymentResponse.data); 
         
         const totalPaymentResponse = await axios.get(
-          `http://localhost:8080/payment/total/${data[0].reservation_id}`
+          `http://localhost:8080/payment/total/${data.reservationId}`
         );
         setTotalPaid(totalPaymentResponse.data);
 
@@ -54,17 +53,17 @@ const PaymentWorkflow = () => {
 
   const handleAdvancePayment = () => {
     // Redirect to payment page for advance payment
-    navigate(`/payment/${reservationData[0].reservation_id}/${reservationData[0].advanceFee}/ADVANCE_FEE`);
+    navigate(`/payment/${reservationData[0].reservationId}/${reservationData[0].advanceFee}/ADVANCE_FEE`);
   };
 
   const handleFullPayment = () => {
     // Redirect to payment page for full payment
-    navigate(`/payment/${reservationData[0].reservation_id}/${reservationData[0].totalFee}/TOTAL_FEE`);
+    navigate(`/payment/${reservationData[0].reservationId}/${reservationData[0].totalFee}/TOTAL_FEE`);
   };
 
   const handleCancellation = async () => {
     try {
-      await axios.put(`http://localhost:8080/reservation/cancel/${reservationData[0].reservation_id}`);
+      await axios.put(`http://localhost:8080/reservation/cancel/${reservationData[0].reservationId}`);
       setCancelled(true);
       alert('Reservation cancelled successfully.');
     } catch (error) {
