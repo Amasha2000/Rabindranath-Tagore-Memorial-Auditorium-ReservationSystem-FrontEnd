@@ -1,0 +1,105 @@
+.event-management {
+    padding: 20px;
+  }
+
+.topic{
+   margin-top: 0;
+}  
+  
+.form-group-row {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+  }
+  
+.form-group-row input {
+    padding: 8px;
+    margin-right: 10px;
+    flex: 1; 
+  }
+  
+.form-group-row input[type="file"] {
+    flex: none; 
+  }
+  
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+.button-group button {
+    padding: 10px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    flex: 1; 
+  }
+  
+.form-group label {
+    margin-right: 10px;
+  }
+  
+.form-group input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+
+.search{
+    width: 23.5%;
+}  
+  
+.event-list {
+    margin-top: 30px;
+  }
+  
+.event-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+.event-list table th, .event-list table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+.event-list table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+.event-list table img {
+    width: 80px;
+  }
+
+.add{
+    font-size: 14px;
+    background-color: #399918;
+    color: white;
+}  
+
+.update{
+    font-size: 14px;
+    background-color: #FF9A00;
+    color: white;
+}
+
+.delete{
+    font-size: 14px;
+    background-color: #C62E2E;
+    color: white;
+}
+
+.add:hover{
+    background-color: #06D001;
+}
+
+.update:hover{
+    background-color: #F3C623;
+}
+
+.delete:hover{
+    background-color: #FF6969;
+}
+  

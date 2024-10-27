@@ -8,6 +8,7 @@ import EventCalendar from './pages/EventCalendar';
 import HistoryPage from './pages/History';
 import Notification from './pages/Notification';
 import SignInPage from './pages/SignIn'
+import ManageEvents from './pages/ManageEvents.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/payment-detail" element={<PaymentWorkflow />} />
           <Route path="/calendar" element={<EventCalendar />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route path="/manage-events" element={<ManageEvents />} />
           <Route path="/notifications" element={<Notification />} />
           <Route path="/login" element={<SignInPage />} />
         </Routes>
