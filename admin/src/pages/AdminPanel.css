@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-.dashboard, .calendar-container, .notification-page, .event-management, .loading-container
+.dashboard, .calendar-container, .notification-page, .event-management, .loading-container, .view-report-container
  {
     flex-grow: 1;           
     padding: 20px;
