@@ -72,7 +72,7 @@ const SignIn = () => {
                          placeholder="Password" 
                          required
                    />
-                   <a href="/login">Forgot Password?</a>
+                   <a href="/forgot-password">Forgot Password?</a>
                    <button type='submit'>Sign In</button>
                </form>
                <p>Don't have an account? <a href="/register">Sign Up</a></p>

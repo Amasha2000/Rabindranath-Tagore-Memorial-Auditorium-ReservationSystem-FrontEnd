@@ -13,6 +13,8 @@ import MonthlyReservationReport from './components/Report/MonthlyReservationRepo
 import YearlyReservationReport from './components/Report/YearlyReservationReport.js';
 import YearlyEventReservationReport from './components/Report/YearlyEventReservationReport.js';
 import Report from './pages/Report.js';
+import ForgotPasswordPage from './pages/ForgotPasswordPage.js';
+import ResetPasswordPage from './pages/ResetPasswordPage.js';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/reports" element={<Report />} />
           <Route path="/notifications" element={<Notification />} />
           <Route path="/login" element={<SignInPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
         </Routes>
       </Router>
   );
