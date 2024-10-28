@@ -5,7 +5,7 @@ import './ViewReport.css';
 const ViewReport = () => {
     return (
         <div className="view-report-container">
-            <div className='background-image'></div>
+            <div className='background-image-report'></div>
             <div className="report-cards-container">
                 <div className="report-card">
                     <h3>Monthly Report</h3>
