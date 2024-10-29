@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Form from './pages/Form';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import UserProfilePage from './pages/UserProfilePage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/application-form" element={<Form />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/user-profile" element={<UserProfilePage />} />
         </Routes>
       </Router>
   );

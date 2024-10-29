@@ -34,7 +34,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faBell} className="icon" />
           <span>Notifications</span>
         </a>
-        <a href="/user" className="navbar-link">
+        <a href="/user-profile" className="navbar-link">
           <FontAwesomeIcon icon={faUser} className="icon" />
           <span>User Profile</span>
         </a>

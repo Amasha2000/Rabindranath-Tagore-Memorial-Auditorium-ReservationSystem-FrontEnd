@@ -15,6 +15,7 @@ import YearlyEventReservationReport from './components/Report/YearlyEventReserva
 import Report from './pages/Report.js';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.js';
 import ResetPasswordPage from './pages/ResetPasswordPage.js';
+import UserProfilePage from './pages/UserProfilePage.js';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" element={<SignInPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/user-profile" element={<UserProfilePage />} />
         </Routes>
       </Router>
   );
