@@ -12,14 +12,23 @@ const Payment = () => {
   const elements = useElements();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const isConfirmed = window.confirm("Are you sure you want to proceed with the payment?");
+  
+    if (!isConfirmed) {
+     return; 
+   }
+
     if (!stripe || !elements) {
       return;
     }
+
+    setLoading(true);
 
     const cardElement = elements.getElement(CardElement);
     
@@ -44,6 +53,8 @@ const Payment = () => {
       }
     } catch (error) {
       setError('Error processing payment');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -61,7 +72,9 @@ const Payment = () => {
         <p>Amount to pay: Rs.{amount}</p>
         <form onSubmit={handleSubmit}>
           <CardElement className="CardElement" />
-          <button type="submit" disabled={!stripe || success}>Pay</button>
+          <button type="submit" disabled={!stripe || success}>
+             {loading ? 'Processing...' : 'Pay'}
+          </button>
         </form>
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">Payment successful!</div>}

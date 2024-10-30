@@ -23,6 +23,14 @@ const Dashboard = () => {
         navigate('/application-form', { state: { reservation } });
     };
     
+    const isReservationInCurrentMonth = (date) => {
+        const reservationDate = new Date(date);
+        const currentDate = new Date();
+        return (
+            reservationDate.getMonth() === currentDate.getMonth() &&
+            reservationDate.getFullYear() === currentDate.getFullYear()
+        );
+    };
     
     return (
         <div className="dashboard">
@@ -45,7 +53,12 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                         {pendingReservations.map(reservation => (
-                            <tr key={reservation.reservationId} className={reservation.isClosed ? 'closed' : ''}>
+                            <tr key={reservation.reservationId} 
+                            className={`
+                                ${reservation.isClosed ? 'closed' : ''} 
+                                ${isReservationInCurrentMonth(reservation.reservedDate) ? 'highlight' : ''}
+                            `}
+                            >
                                 <td>{reservation.organizationName}</td>
                                 <td>{reservation.applicantName}</td>
                                 <td>{reservation.eventType}</td>

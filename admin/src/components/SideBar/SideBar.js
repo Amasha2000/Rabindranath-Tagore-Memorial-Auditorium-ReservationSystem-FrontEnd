@@ -13,6 +13,7 @@ const SideBar = () => {
                 <li><Link to="/calendar"><i className="icon-calendar"><FontAwesomeIcon icon={faCalendarAlt} /></i> Event Calendar</Link></li>
                 <li><Link to="/reports"><i className="icon-reports"><FontAwesomeIcon icon={faChartBar} /></i> Reports</Link></li>
                 <li><Link to="/history"><i className="icon-history"><FontAwesomeIcon icon={faHistory} /></i> History</Link></li>
+                <li><Link to="/manage-cancellations"><i className="icon-reservations"><FontAwesomeIcon icon={faClipboardList} /></i> Cancellation Requests</Link></li>
                 <li><Link to="/manage-events"><i className="icon-events"><FontAwesomeIcon icon={faTasks} /></i> Manage Events</Link></li>
             </ul>
         </div>

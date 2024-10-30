@@ -86,3 +86,8 @@
 .view{
     background-color: #091057 !important;
 }
+
+.highlight {
+    background-color: #FF4545; 
+    color: white;
+}

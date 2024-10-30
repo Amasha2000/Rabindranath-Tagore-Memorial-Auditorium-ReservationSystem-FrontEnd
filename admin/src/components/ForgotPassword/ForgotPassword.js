@@ -35,6 +35,7 @@ const ForgotPassword = () => {
                             value={email}
                             onChange={handleEmailChange}
                             required
+                            className='input-email'
                         />
                     </div>
                     <button type="submit" className="submit-btn">Send Reset Link</button>

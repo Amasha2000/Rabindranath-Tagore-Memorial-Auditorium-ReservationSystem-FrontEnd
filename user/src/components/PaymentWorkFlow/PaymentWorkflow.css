@@ -154,6 +154,10 @@
     cursor: pointer;
     margin-left: 18.5%;
   }
+
+  .info-para{
+    margin-left: 18.5%;
+  }
   
   /* Media Queries for Responsive Design */
   @media (max-width: 768px) {

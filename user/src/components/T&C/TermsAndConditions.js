@@ -43,7 +43,7 @@ const TermsAndConditions = () => {
       </div>
 
       <button 
-        className="submit-btn" 
+        className="submit-btn-terms" 
         onClick={handleFormSubmit} 
         disabled={!agreed}
       >

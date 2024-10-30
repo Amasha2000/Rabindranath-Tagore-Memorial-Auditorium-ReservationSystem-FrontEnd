@@ -16,6 +16,7 @@ import Report from './pages/Report.js';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.js';
 import ResetPasswordPage from './pages/ResetPasswordPage.js';
 import UserProfilePage from './pages/UserProfilePage.js';
+import ManageCancellationPage from './pages/ManageCancellations.js';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/admin-dashboard" element={<Dashboard />} />
           <Route path="/application-form" element={<ApplicationForm />} />
           <Route path="/manage-reservations" element={<ReservationManage />} />
+          <Route path="/manage-cancellations" element={<ManageCancellationPage />} />
           <Route path="/payment-detail" element={<PaymentWorkflow />} />
           <Route path="/calendar" element={<EventCalendar />} />
           <Route path="/history" element={<HistoryPage />} />

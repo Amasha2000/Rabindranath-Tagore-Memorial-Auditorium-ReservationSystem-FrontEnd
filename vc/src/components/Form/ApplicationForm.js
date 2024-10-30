@@ -40,6 +40,8 @@ const ApplicationForm = () => {
   // eslint-disable-next-line
   const [isDisabled, setIsDisabled] = useState(true);
   const { state } = useLocation();
+  const [loadingOne, setLoadingOne] = useState(false);
+  const [loadingTwo, setLoadingTwo] = useState(false);
   
   const memoizedReservationData = useMemo(() => {
     return state?.reservation || {};
@@ -85,6 +87,19 @@ const ApplicationForm = () => {
   }, [memoizedReservationData]);
 
   const handleApproval = async (status) => {
+
+    const isConfirmed = window.confirm("Are you sure you want to proceed ?");
+  
+    if (!isConfirmed) {
+     return; 
+   }
+
+   if(status === "APPROVED"){
+    setLoadingOne(true);
+   }else{
+    setLoadingTwo(true);
+   }
+
     try {
       const response = await fetch(`http://localhost:8080/reservation/${memoizedReservationData.reservationId}/${status}`, {
         method: 'PUT' 
@@ -98,7 +113,13 @@ const ApplicationForm = () => {
     } catch (error) {
       console.error('Error:', error);
       alert('Error updating reservation status');
-    }
+    } finally {
+      if(status === "APPROVED"){
+        setLoadingOne(false);
+       }else{
+        setLoadingTwo(false);
+       }
+      }
   };
 
   return (
@@ -289,10 +310,10 @@ const ApplicationForm = () => {
 </div>
  <div className='submit-buttons'>
  <button className='reject' type='button' onClick={() => handleApproval('REJECTED')}>
-  Reject
+ {loadingTwo ? 'Please wait...' : 'Reject'}
 </button>
 <button className='approve' type='button' onClick={() => handleApproval('APPROVED')}>
-  Approve
+{loadingOne ? 'Please wait...' : 'Approve'}
 </button>
  </div>
 </form>

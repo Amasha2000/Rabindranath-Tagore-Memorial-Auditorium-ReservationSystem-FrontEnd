@@ -41,6 +41,8 @@ const ApplicationForm = () => {
   // eslint-disable-next-line
   const [isDisabled, setIsDisabled] = useState(true);
   const { state } = useLocation();
+  const [loadingOne, setLoadingOne] = useState(false);
+  const [loadingTwo, setLoadingTwo] = useState(false);
   
   const memoizedReservationData = useMemo(() => {
     return state?.reservation || {};
@@ -87,15 +89,35 @@ const ApplicationForm = () => {
 
   const handleSubmit = async () => {
     try {
+
+      const isConfirmed = window.confirm("Are you sure you want to send the form to VC?");
+  
+      if (!isConfirmed) {
+        return; 
+      }
+
+      setLoadingOne(true);
+
       const response = await axios.put(`http://localhost:8080/reservation/send-vc/${memoizedReservationData.reservationId}`);
       alert("Application Form has successfully send to VC");
       console.log(response.data);
     } catch (error) {
       console.error('Error fetching notifications:', error);
+    } finally {
+      setLoadingOne(false);
     }
   };
 
   const handleApproval = async (status) => {
+
+    const isConfirmed = window.confirm("Are you sure you want to reject the form?");
+  
+    if (!isConfirmed) {
+     return; 
+   }
+
+   setLoadingTwo(true);
+
     try {
       const response = await fetch(`http://localhost:8080/reservation/${memoizedReservationData.reservationId}/${status}`, {
         method: 'PUT' 
@@ -109,6 +131,8 @@ const ApplicationForm = () => {
     } catch (error) {
       console.error('Error:', error);
       alert('Error updating reservation status');
+    } finally {
+      setLoadingTwo(false);
     }
   };
 
@@ -350,10 +374,10 @@ const ApplicationForm = () => {
 
 <div className='submit-buttons'>
  <button className='reject' type='button' onClick={() => handleApproval('REJECTED')}>
-  Reject
+ {loadingOne ? 'Please wait...' : 'Reject'}
 </button>
 <button className='approve' type='button' onClick={() => handleSubmit()}>
-  Send To VC
+{loadingTwo ? 'Please wait...' : 'Send To VC'}
 </button>
  </div>
 </form>

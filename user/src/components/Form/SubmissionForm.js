@@ -19,7 +19,7 @@ const ApplicationForm = () => {
     singers: '',
     specialInvitees: '',
     viewers: '',
-    reservedDate: '',
+    reservedDate: localStorage.getItem('Date') || '',
     eventStartTime: '',
     eventEndTime: '',
     eventNoOfHours: '',
@@ -41,7 +41,8 @@ const ApplicationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -109,6 +110,7 @@ const ApplicationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
+      setLoading(true);
       try {
         console.log('Form submitted', formData);
 
@@ -128,6 +130,8 @@ const ApplicationForm = () => {
         navigate('/payment')
       } catch (error) {
         console.error('Error submitting form', error);
+      } finally {
+      setLoading(false);
       }
     } else {
       console.log('Form validation failed');
@@ -286,10 +290,11 @@ const ApplicationForm = () => {
   <div className="date-time-group">
     <input
       className="date"
-      type="date"
+      type="text"
       name="reservedDate"
       value={formData.reservedDate}
       onChange={handleChange}
+      disabled={true}
     />
     <label>From</label>
     <input
@@ -467,7 +472,7 @@ const ApplicationForm = () => {
 </div>
 
 <button type="submit" disabled={!formData.agreed}>
-  Submit
+ {loading ? 'Please wait...' : 'Submit'}
 </button>
 </form>
 </div>

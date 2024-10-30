@@ -47,9 +47,12 @@
     margin-top: 20px;
 }
 
+.reservations-table tr{
+    border: 2px solid #ccc;
+}
+
 .reservations-table th, .reservations-table td {
     padding: 12px;
-    border-bottom: 1px solid #ccc;
 }
 
 .reservations-table td{
@@ -69,4 +72,9 @@
 
 .view{
     background-color: darkslateblue !important;
+}
+
+.highlight {
+    background-color: #FF4545; 
+    color: white;
 }

@@ -34,10 +34,15 @@ const AvailabilityCalendar = () => {
   const onDateChange = date => {
     setSelectedDate(date);
     const normalizedDate = normalizeDate(date);
+
+    const formattedDate = `${normalizedDate.getFullYear()}-${String(normalizedDate.getMonth() + 1).padStart(2, '0')}-${String(normalizedDate.getDate()).padStart(2, '0')}`;
+    
     const hasEventAvailable = events.some(event => 
-      new Date(event.date).toDateString() === normalizedDate.getTime()
+      normalizeDate(new Date(event.date)).getTime() === normalizedDate.getTime()
     );
+    
     setIsProceedButtonEnabled(!hasEventAvailable);
+    localStorage.setItem('Date', formattedDate);
   };
   
   const tileDisabled = ({ date }) => {
