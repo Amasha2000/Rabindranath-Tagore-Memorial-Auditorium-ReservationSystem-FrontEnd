@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
+    <footer className="footer" id='contact-us'>
       <div className="contact-details">
         {contacts.map((contact, index) => (
           <div className="contact-box" key={index}>

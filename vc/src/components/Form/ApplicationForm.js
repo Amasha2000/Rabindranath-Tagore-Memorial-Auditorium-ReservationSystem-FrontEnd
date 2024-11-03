@@ -194,10 +194,10 @@ const ApplicationForm = () => {
             {['University students', 'School students', 'Institute staff', 'Open'].map((type) => (
               <label key={type}>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="viewers"
                   value={type}
-                  checked={formData.viewers === type || ''}
+                  checked={formData.viewers.includes(type) || ''}
                   disabled={isDisabled}
                 />
                 {type}

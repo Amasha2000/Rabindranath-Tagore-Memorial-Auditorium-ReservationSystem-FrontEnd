@@ -1,0 +1,71 @@
+.location-wrapper {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .location-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem; 
+  }
+  
+  .location-info {
+    flex: 1;
+    margin-right: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .location-info h2 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    color: #333;
+  }
+  
+  .location-info p {
+    margin: 0.5rem 0;
+  }
+  
+  .location-info a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .location-info a:hover {
+    text-decoration: underline;
+  }
+  
+  .location-map {
+    flex: 1;
+    max-width: 600px;
+    height: 300px;
+  }
+  
+  .copyright-text {
+    font-size: 0.875rem;
+    background-color: black;
+  }
+
+  .cr{
+    text-align: center ;
+    color: white;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    .location-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .location-info {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .location-map {
+      width: 100%;
+    }
+  }
+  

@@ -39,7 +39,7 @@
 }
 
 .signin-box input {
-    width: 100%;
+    width: 100% !important;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -77,4 +77,9 @@
 
 .signin-box a:hover {
     text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
 }

@@ -77,3 +77,9 @@
 .signup-box a:hover {
     text-decoration: underline;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+

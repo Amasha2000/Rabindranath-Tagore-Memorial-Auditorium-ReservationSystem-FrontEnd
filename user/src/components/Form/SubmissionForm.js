@@ -43,10 +43,85 @@ const ApplicationForm = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const nicPattern = /^(\d{9}[VX]|[0-9]{12})$/; 
+  const phonePattern = /^[0-9]{10}$/;
+
+  const validateField = (name, value) => {
+  let errorMsg = '';
   
+  switch (name) {
+    case 'organizationName':
+      if (value.length < 3) {
+        errorMsg = '*Organization name should be at least 3 characters long';
+      }
+      break;
+    case 'applicantName':
+        if (!/^[A-Za-z\s]+$/.test(value)) {
+          errorMsg = '*Applicant name should contain only letters and spaces';
+        }
+        break;  
+    case 'nic':
+      if (!nicPattern.test(value)) {
+        errorMsg = '*Invalid NIC format (9 digits followed by V or X)';
+      }
+      break;
+    case 'landLine':
+      if (!phonePattern.test(value)) {
+        errorMsg = '*Invalid Landline number';
+      }
+      break;
+    case 'email':
+      if (!emailPattern.test(value)) {
+        errorMsg = '*Invalid email address';
+      }
+      break;
+    case 'mobile':
+      if (!phonePattern.test(value)) {
+        errorMsg = '*Invalid mobile number';
+      }
+      break;
+    case 'concertType':
+      if (!value && formData.eventType === 'Musical concerts') {
+        errorMsg = '*Select a concert type';
+      }
+      break;
+    default:
+      break;
+  }
+
+  return errorMsg;
+};
+
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        viewers: [...prevFormData.viewers, value]
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        viewers: prevFormData.viewers.filter((viewer) => viewer !== value)
+      }));
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  
+    const errorMessage = validateField(name, value);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: errorMessage,
+    }));
   };
 
   const handleAgreeChange = (e) => {
@@ -230,6 +305,7 @@ const ApplicationForm = () => {
                 value="Classical"
                 checked={formData.concertType === 'Classical'}
                 onChange={handleChange}
+                disabled={['Stage Drama', 'Conferences/Lectures', 'Awards/Tributes/Ceremonies'].includes(formData.eventType)}
               />
               Classical
             </label>
@@ -240,6 +316,7 @@ const ApplicationForm = () => {
                 value="Fast rhythms"
                 checked={formData.concertType === 'Fast rhythms'}
                 onChange={handleChange}
+                disabled={['Stage Drama', 'Conferences/Lectures', 'Awards/Tributes/Ceremonies'].includes(formData.eventType)}
               />
               Fast rhythms
             </label>
@@ -251,18 +328,18 @@ const ApplicationForm = () => {
           </p>
 
           <label>Music Band</label>
-          <input type="text" className='band' name="musicBand" value={formData.musicBand} onChange={handleChange} />
+          <input type="text" className='band' name="musicBand" value={formData.musicBand} onChange={handleChange}  disabled={['Stage Drama', 'Conferences/Lectures', 'Awards/Tributes/Ceremonies'].includes(formData.eventType)}/>
           {errors.musicBand && <span className="error-text">{errors.musicBand}</span>}
 
           <label>Participating singers</label>
-          <textarea name="singers" rows="3" value={formData.singers} onChange={handleChange}></textarea>
+          <textarea name="singers" rows="3" value={formData.singers} onChange={handleChange}  disabled={['Stage Drama', 'Conferences/Lectures', 'Awards/Tributes/Ceremonies'].includes(formData.eventType)}></textarea>
           {errors.singers && <span className="error-text">{errors.singers}</span>}
         </div>
 
         <div className="section">
           <h3>Stage drama/Conferences/Lectures/Awards/Tributes/Ceremonies:</h3>
           <label>Resource persons/ Program lead persons/ Team/ Special Invitees</label>
-          <textarea name="specialInvitees" rows="3" value={formData.specialInvitees} onChange={handleChange}></textarea>
+          <textarea name="specialInvitees" rows="3" value={formData.specialInvitees} onChange={handleChange} disabled={formData.eventType === 'Musical concerts'}></textarea>
           {errors.specialInvitees && <span className="error-text">{errors.specialInvitees}</span>}
         </div>
 
@@ -272,11 +349,11 @@ const ApplicationForm = () => {
             {['University students', 'School students', 'Institute staff', 'Open'].map((type) => (
               <label key={type}>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="viewers"
                   value={type}
-                  checked={formData.viewers === type}
-                  onChange={handleChange}
+                  checked={formData.viewers.includes(type)}
+                  onChange={handleCheckboxChange}
                 />
                 {type}
               </label>

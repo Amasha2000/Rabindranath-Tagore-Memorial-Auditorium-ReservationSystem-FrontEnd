@@ -16,6 +16,7 @@ import Payment from './components/PaymentWorkFlow/Payment';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import UserProfilePage from './pages/UserProfilePage';
+import HomePage from './pages/HomePage';
 
 const stripePromise = loadStripe('pk_test_51NTgKRAaWvD0FBmzmVquePz9uFILsjLUYey7pNiY4zIiKVyuzhYAPMdWg7USuiUujmsRvNUC1H14x666RiZKa53g00xLyoEIOj');
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/user-profile" element={<UserProfilePage />} />
+        <Route path="/" element={<HomePage />} />
 
         <Route
           path="/payment/:reservationId/:amount/:paymentType"

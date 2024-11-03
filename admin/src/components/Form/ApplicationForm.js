@@ -257,10 +257,10 @@ const ApplicationForm = () => {
             {['University students', 'School students', 'Institute staff', 'Open'].map((type) => (
               <label key={type}>
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="viewers"
                   value={type}
-                  checked={formData.viewers === type || ''}
+                  checked={formData.viewers.includes(type) || ''}
                   disabled={isDisabled}
                 />
                 {type}
@@ -374,10 +374,10 @@ const ApplicationForm = () => {
 
 <div className='submit-buttons'>
  <button className='reject' type='button' onClick={() => handleApproval('REJECTED')}>
- {loadingOne ? 'Please wait...' : 'Reject'}
+ {loadingTwo ? 'Please wait...' : 'Reject'}
 </button>
 <button className='approve' type='button' onClick={() => handleSubmit()}>
-{loadingTwo ? 'Please wait...' : 'Send To VC'}
+{loadingOne ? 'Please wait...' : 'Send To VC'}
 </button>
  </div>
 </form>
