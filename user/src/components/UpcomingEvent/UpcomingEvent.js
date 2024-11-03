@@ -18,7 +18,7 @@ const UpcomingEvent = () => {
       <h1 className='topic'>Upcoming Events</h1>
       <div className="events-list">
         {events.map(event => (
-          <div className="event-card" key={event.id}>
+          <div className="event-card" key={event.eventId}>
             <img src={`http://localhost:8080/images/${event.imageURL}`} alt={event.title} className="event-image" />
             <div className="event-info">
               <h3 className="event-title">{event.title}</h3>
